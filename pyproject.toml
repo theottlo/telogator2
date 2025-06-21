@@ -1,0 +1,35 @@
+# Based on commit 1eb71269757782777f3f7a4c33d6db80751d42c2
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "telogator2"
+version = "1.1.1"
+description = "A method for measuring allele-specific telomere length and characterizing telomere variant repeat sequences from long reads"
+readme = "README.md"
+authors = [{name = "Zach Stephens"}]
+requires-python = ">=3.9"
+dependencies = [
+    "biopython>=1.82",
+    "matplotlib",
+    "numpy", 
+    "scipy",
+    "pysam",
+    "pywavelets"
+]
+
+[project.scripts]
+telogator2 = "telogator2:main"
+make_telogator_ref = "make_telogator_ref:main"
+
+[project.urls]
+Homepage = "https://github.com/zstephens/telogator2"
+
+[tool.setuptools]
+py-modules = ["telogator2", "make_telogator_ref"]
+packages = ["source"]
+
+[tool.setuptools.package-data]
+"*" = ["test_data/*"]
